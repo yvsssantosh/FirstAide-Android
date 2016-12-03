@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
             * in the backstack and swap it into the container
             */
             Fragment unknownFragment = fragmentManager.findFragmentByTag(FRAGMENT_TAG);
-            MainActivity.swapFragmentIn(this,unknownFragment,FRAGMENT_TAG,false);
+            if(unknownFragment != null){
+                MainActivity.swapFragmentIn(this,unknownFragment,FRAGMENT_TAG,false);
+            }
         }
         else
         {
