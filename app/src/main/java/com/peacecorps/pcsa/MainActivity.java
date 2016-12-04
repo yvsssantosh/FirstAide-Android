@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     public static String FRAGMENT_TAG = MainActivityFragment.TAG;
     private FragmentManager fragmentManager = getSupportFragmentManager();
     SharedPreferences sharedPreferences;
+    private int lastExpandedGroup=-1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,11 +94,10 @@ public class MainActivity extends AppCompatActivity {
         prepareListData();
         listAdapter = new NavDrawerListAdapter(this, listDataHeader, listDataChild);
         expListView.setAdapter(listAdapter);
-        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
-            public void onGroupExpand(int groupPosition) {
-                switch (groupPosition)
-                {
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                switch (groupPosition) {
                     case 0:
                         //Swapping ContactPostStaff into the fragment container dynamically
                         Fragment contactPostStaffFragment = new ContactPostStaff();
@@ -118,9 +118,19 @@ public class MainActivity extends AppCompatActivity {
                     case 7:
                         Toast.makeText(MainActivity.this,getString(R.string.change_name),Toast.LENGTH_LONG).show();
                 }
+                return false;
             }
         });
-
+        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if (lastExpandedGroup != -1
+                        && groupPosition != lastExpandedGroup) {
+                    expListView.collapseGroup(lastExpandedGroup);
+                }
+                lastExpandedGroup = groupPosition;
+            }
+        });
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
