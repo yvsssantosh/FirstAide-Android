@@ -25,20 +25,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/contact_pick_button_margin">
-
-        <TextView
+        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/primary_text_default_material_dark"
-            android:id="@+id/layout_content"
-            android:background="@drawable/bg_textview_rounded_rectangle"
-            android:padding="@dimen/reporting_types_padding"
             android:scrollbars="vertical"
-            android:textSize="18sp"
             android:layout_marginTop="@dimen/contacting_post_staff_marginTop_15"
-            android:fadeScrollbars="false"
-            android:scrollbarStyle="insideInset" />
+            android:background="@drawable/bg_textview_rounded_rectangle">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text_default_material_dark"
+                android:id="@+id/layout_content"
+                android:padding="@dimen/reporting_types_padding"
+                android:textSize="18sp"
+                android:fadeScrollbars="false"
+                android:scrollbarStyle="insideInset" />
+        </ScrollView>
     </LinearLayout>
 
 </LinearLayout>
