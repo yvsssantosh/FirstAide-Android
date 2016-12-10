@@ -35,30 +35,39 @@
             android:orientation="horizontal"
             android:fadeScrollbars="false">
 
+            <ScrollView
+                android:scrollbars="vertical"
+                android:background="@drawable/bg_textview_rounded_rectangle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:layout_width="@dimen/reporting_types_width"
                 android:layout_height="match_parent"
                 android:textColor="@color/primary_text_default_material_dark"
                 android:id="@+id/tactics_characteristics_assault"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/bg_textview_rounded_rectangle"
                 android:padding="@dimen/reporting_types_padding"
-                android:scrollbars="vertical"
                 android:fadeScrollbars="false"
                 android:scrollbarStyle="insideInset"/>
+            </ScrollView>
 
-            <TextView
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:background="@drawable/bg_textview_rounded_rectangle"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+                <TextView
                 android:layout_width="@dimen/reporting_types_width"
                 android:layout_height="match_parent"
                 android:textColor="@color/primary_text_default_material_dark"
                 android:id="@+id/tactics_tactics_assault"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:background="@drawable/bg_textview_rounded_rectangle"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:padding="@dimen/reporting_types_padding"
-                android:scrollbars="vertical"
-                android:fadeScrollbars="false"
+                    android:padding="@dimen/reporting_types_padding" android:fadeScrollbars="false"
                 android:scrollbarStyle="insideInset"/>
+           </ScrollView>
+
 
         </LinearLayout>
     </HorizontalScrollView>
